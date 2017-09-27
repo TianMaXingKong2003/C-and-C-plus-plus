@@ -3,5 +3,5 @@ int main()
 {
 	int x;
 	scanf("%d",&x);
-	printf("%x",x);
+	printf("%X",x);
 }

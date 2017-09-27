@@ -1,31 +1,15 @@
 #include<stdio.h>
-#include<math.h>
 int main()
-{	
-	double n;int y;
-//	scanf("%f",&n);
-	
-	double x1=1.618;
-	double x2= -0.618;
-	
-	double i;
-	for(i=1.0;i<10;i++)
+{
+	int n;
+	while(scanf("%d",&n)!=EOF)
 	{
-		n=i;	
-		for(;n>1;n--)
-		{
-			x1=x1*1.618;
-				
-			x2=x2*(-0.618);
-		}
-		
-		//	 y=round ((x1-x2)/2.236);
-	
-	
-			printf("%.0f  %f\n",(x1-x2)/2.236,n);
+		int i,j;
+	int f[100001];f[1]=1;f[2]=1;
+	for(i=3;i<=n;++i)
+		f[i]=(f[i-1]+f[i-2])%10007;
+	printf("%d",f[n]);
 	}
-		//printf("%d\n",y);
-//	printf("%d",y%10007);
 	
- }	
- 
+}
+

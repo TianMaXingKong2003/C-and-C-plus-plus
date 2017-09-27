@@ -24,7 +24,7 @@ int main()
 	}
 	
 	
-	for(i=1;i<1000;i++)
+	for(i=1;i<100;i++)
 	{
 		if(prime[i])
 			printf("ËØÊýÎª£º%d    prime[%d]\n",i,i);

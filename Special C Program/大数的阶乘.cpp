@@ -1,10 +1,10 @@
-#include <iostream>  
-using namespace std;  
+#include <stdio.h>  
+
 int main()  
 {  
     int n,i,j;  
-    while (cin>>n)  
-    {  
+      
+    scanf("%d",&n);  
         int flag=1;  
         int carry=0;        //设置进位  
         int res=0;  
@@ -29,9 +29,9 @@ int main()
         }  
         for (i=flag-1;i>=0;i--)    //将结果数组倒序输出，注意最后一位是"i=flag-1",因为"flag=1" 对应str[0],以此类推  
         {  
-             cout<<str[i];  
+             printf("%d",str[i]);
         }  
-         cout<<endl;  
-     }  
-    return 0;  
+           
+     
+      
 }  
