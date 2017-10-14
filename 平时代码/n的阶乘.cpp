@@ -1,73 +1,78 @@
-#include<stdio.h>
-#include<string.h> 
-#include<iostream>
-int main()
-{
-/*	char s[1000];
-	scanf("%s",&s);
+ #include<stdio.h>
+ #define max 10000
+ 
+ int N(int n)
+ {
+ 	int i=1;
+ 	int y=1;
+ 	
+ 	for(;i<=n;i++)
+ 		y*=i;
+ 
+ 	return y;
+ }
+ 
+ int main()
+ {
+ 	
+	 
+ 	int n;scanf("%d",&n);
+ 	
+ 	int i,j,num0,num,flag=0;
+ 	
+ 	int m[max]={0};m[0]=1;
+ 	
+ 	for(i=2;i<=n;i++)
+ 	{
+ 		num0=num=0;
+ 		
+	 	for(j=0;j<=flag;j++)
+ 		{
+ 			if(m[j]*i+num0>=10)
+			 {
+			 	num=(m[j]*i+num0)/10;
+			 	m[j]=(m[j]*i+num0)%10;
+			 	num0=num;
+			  } 
+ 			else
+ 			{
+ 				m[j]=m[j]*i+num0;
+ 				num=0;num0=num;
+			 }
+			 if(j==flag&&num!=0)
+			 	flag++;
+		 } 
+	 	
+	 }	
+	 
+	 /*
+	 int count=0;
+	 
+	 for(i=0;i<max;i++)
+	 {
+	 	if(i>=19)
+	 	if(m[i+1]==0&&m[i+2]==0&&m[i+3]==0&&m[i+4]==0)
+	 		{count++;break;} 
+	 	else
+	 		count++;
+	 }
+	 
+	 */
+	 
+	 for(i=flag;i>=0;i--)
+	 	printf("%d",m[i]);
 	
-	for(int i;i<strlen(s);i++)
-		printf("%d\n",s[i]-48);
-*/
-
-	int a=1;int L=0;
-	char A[1000]={0};A[0]=1;
-	int n;
 	
-	printf("实验一下：A[0]=%d\n",A[0]+2);
-	
-	
-	printf("这是一个%d位数\n",strlen(A));
-	n=strlen(A);
-	
-	for(int i=strlen(A)-1;i>=0;i--)
-		printf("%d",A[i]);
-		
-	
-		
-	scanf("%d",&n);
-	
-	for(int j=1;j<=n;j++)
-	{
-		if(n==1||n==2)
-		{
-		
-			break;
-		}
-		else
-		{
-			L=strlen(A)-1;
-			
-			for(int i=0;i<=L+1;i+=2)
-			{
-					if(A[i-1]>=10)
-					{
-						A[i]=A[i]*j+A[i-1]/10;
-									
-						A[i-1]=A[i-1]%10;
-					}
-					else
-						A[i]=A[i]*j;
-					if(A[i]>=10)
-					{	
-						A[i+1]=A[i+1]*j+A[i]/10;
-									
-						A[i]=A[i]%10;
-							
-						
-					}
-				printf("j=%d i=%d  执行后:A[%d]=%d  A[%d]=%d     A有%d位数\n",j,i,i,A[i],i+1,A[i+1],strlen(A));
-			}
-			
-		}
-	}
-
-
-	printf("这是一个%d位数\n",strlen(A));
-	
-	printf("%d %d %d %d %d\n",A[0],A[1],A[2],A[3],A[4]);
-	
-	printf("n!=");
-	for(int i=strlen(A)-1;i>=0;i--)
-		printf("%d",A[i]);
-}
+	//	printf("\n\n%d",N(n));
+  } 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
