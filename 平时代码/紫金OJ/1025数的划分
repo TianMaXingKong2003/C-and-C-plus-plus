@@ -1,0 +1,31 @@
+#include<stdio.h>
+
+int main()
+{
+	int f[205][10];
+	
+	int n,k,i,j;int x,y;
+	
+	scanf("%d%d",&n,&k);
+	
+	for(i=1;i<=n;i++)
+		f[i][1]=1;
+		
+	f[0][0]=1;
+	
+	for(i=1;i<=n;i++)
+	{
+		for(j=1;j<=k&&j<=i;j++)
+		{
+			f[i][j]=f[i-1][j-1]+f[i-j][j];
+		}
+	}
+	printf("%d\n\n",f[n][k]);
+	
+	for(x=0;x<20;x++)
+	{
+		for(y=0;y<10;y++)
+			printf("%d ",f[x][y]);
+		printf("\n");
+	}
+} 
