@@ -1,31 +1,18 @@
 #include<stdio.h>
 
+int fun(int m,int n)
+{
+	if(n==0)	return 0;
+	else	if(m==0&&n!=0)	return 1;
+	else	if(m>=n)	return fun(m,n-1)+fun(m-n,n);
+	else	return fun(m,m);
+}
+
 int main()
 {
-	int f[205][10];
+
+	int n,k;scanf("%d%d",&n,&k);
 	
-	int n,k,i,j;int x,y;
+	printf("%d",fun(n-k,k));	
 	
-	scanf("%d%d",&n,&k);
-	
-	for(i=1;i<=n;i++)
-		f[i][1]=1;
-		
-	f[0][0]=1;
-	
-	for(i=1;i<=n;i++)
-	{
-		for(j=1;j<=k&&j<=i;j++)
-		{
-			f[i][j]=f[i-1][j-1]+f[i-j][j];
-		}
-	}
-	printf("%d\n\n",f[n][k]);
-	
-	for(x=0;x<20;x++)
-	{
-		for(y=0;y<10;y++)
-			printf("%d ",f[x][y]);
-		printf("\n");
-	}
 } 
