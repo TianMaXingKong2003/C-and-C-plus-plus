@@ -1,67 +1,60 @@
 #include<stdio.h>
-#include<string.h>
+#include<iostream>
+
+#define max 100
+ 
+using namespace std;
+
+int out[max];
 
 int main()
-
 {
-
-		int x[100];int k;int q;
-
-	for(k=0;k<100;k++)
-		x[k]=1;
 	
-	int z;
+	int n,lenth;cin>>n;lenth=n;
 	
-	scanf("%d",&z);int N;N=z;
+	for(int i=0;i<=n;i++)	out[i]=i;
 	
-
-	int i=2;int j=0;
-	while(z-1)
+	int x=3;
+	
+	while(n)
 	{
-		j=0;
-		if(i>=N)
-			i=i%N;
-			
-		if(x[i])
+		int time=0;
+		
+		if(x>lenth)	x%=lenth;
+		
+		if(out[x])
 		{
-			x[i++]=0;
+			out[x++]=0;n--;
 			
-			while(j!=2)
+			
+			while(time!=2)
 			{
-				if(i>=N)
-					i=i%N;
-				if(x[i])
-				{
-				
-					i++;j++;
-				}
+				if(out[x]==0)
+					x++;
 				else
 				{
-					i++;
-				}
+					x++;time++;
 					
+				}
 				
-			}
-			
-			z--;
+				if(x>lenth)	x%=lenth;
+				
+			}	
 		}
 		else
-			i++;
+			x++;
 			
-	//	for(int h=0;h<N;h++)
-		//	printf("  %d ",x[h]);printf("\n");
-	
-	if(z==1)
-	{
-		if(i>=N)
-					i=i%N;
-		q=i;//	printf("\nend  i=%d\n",q);
+		for(int q=1;q<=lenth;q++)
+			cout<<out[q]<<" ";
+		cout<<endl; 
 		
+		if(n==1)
+		{
+			cout<<x-1<<endl;
+			break;
+		}
 	}
 	
-	}
+	cout<<"end"<<endl;
 	
-	printf("%d",q);
-	
-
 }
