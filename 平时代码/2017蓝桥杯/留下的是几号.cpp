@@ -2,59 +2,63 @@
 #include<iostream>
 
 #define max 100
- 
+
 using namespace std;
 
-int out[max];
+int out[max]={0};
 
 int main()
 {
-	
-	int n,lenth;cin>>n;lenth=n;
+	int n;cin>>n;int lenth=n;
 	
 	for(int i=0;i<=n;i++)	out[i]=i;
 	
-	int x=3;
+	int x=1,time=0;
 	
 	while(n)
 	{
-		int time=0;
+		time=0;
 		
-		if(x>lenth)	x%=lenth;
-		
-		if(out[x])
+		while(time!=2)
 		{
-			out[x++]=0;n--;
-			
-			
-			while(time!=2)
-			{
-				if(out[x]==0)
-					x++;
-				else
+			do{
+				if(x==lenth)
 				{
-					x++;time++;
+					x=1;
+				}
+				else
+				
+				if(x>lenth)	x%=8;
+				else	{
+					x++;
 					
 				}
-				
-				if(x>lenth)	x%=lenth;
-				
-			}	
-		}
-		else
-			x++;
+			}while(out[x]==0);
 			
-		for(int q=1;q<=lenth;q++)
-			cout<<out[q]<<" ";
-		cout<<endl; 
-		
-		if(n==1)
-		{
-			cout<<x-1<<endl;
-			break;
+			time++;
 		}
+		
+		out[x]=0;n--;cout<<"x="<<x<<" ";
+		
+		do{
+				if(x==lenth)
+				{
+					x=1;
+				}
+				else
+				
+				if(x>lenth)	x%=8;
+				else	{
+					x++;
+					
+				}
+			}while(out[x]==0);
+		
+		
+		for(int i=1;i<=lenth;i++)	cout<<out[i];
+		
+		cout<<endl;
+		
+		if(n==1)	break;
 	}
-	
-	cout<<"end"<<endl;
-	
 }
