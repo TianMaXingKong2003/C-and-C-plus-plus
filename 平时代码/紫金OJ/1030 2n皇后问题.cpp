@@ -50,7 +50,8 @@ int f(int cur)
 				
 				for(int k=0;k<cur;k++)
 				{
-					if(j==i)	break;
+					if(j==i)
+					
 					
 					if(out[k].black==out[cur].black||cur-out[cur].black==k-out[k].black||cur+out[cur].black==k+out[k].black)
 					{
