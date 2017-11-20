@@ -9,16 +9,18 @@ using namespace std;
 
 int time=0;
 
-int n=5;
+int n;
+
+int no[maxn][maxn];
 
 int no4[4][4]={
-0,1,1,1,
+1,0,1,1,
 1,1,1,1,
 1,1,1,1,
 1,1,1,1,
 };
 
-int no[5][5]={
+int no5[5][5]={
 1,1,1,1,1,
 1,0,1,1,1,
 1,1,1,1,1,
@@ -90,7 +92,7 @@ int f(int cur)
 					cout<<"i="<<i<<endl;
 					cout<<"cur="<<cur<<endl;
 					cout<<"out[cur].black="<<out[cur].black<<endl;
-					ok=0;break;
+					ok=0;continue; 
 				}
 				
 				if(no[cur][out[cur].white]==0)
@@ -99,7 +101,7 @@ int f(int cur)
 					cout<<"i="<<i<<endl;
 					cout<<"cur="<<cur<<endl;
 					cout<<"out[cur].white="<<out[cur].white<<endl;
-					ok=0;break;
+					ok=0;continue;
 				}		
 				
 				if(j==i)		
@@ -136,14 +138,11 @@ int f(int cur)
 
 int main()
 {
-	
-	/*
 	cin>>n;
 	
 	for(int i=0;i<n;i++)
 		for(int j=0;j<n;j++)
 			cin>>no[i][j];
-	*/
 	
 	cout<<endl;
 	for(int i=0;i<n;i++)
