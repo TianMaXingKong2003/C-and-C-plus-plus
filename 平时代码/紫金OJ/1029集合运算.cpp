@@ -1,113 +1,58 @@
+#include<iostream>
 #include<stdio.h>
+#include<string.h>
+#include<set>
+#include<algorithm>
+
+#define maxn 1100
+using namespace std;
 
 int main()
 {
+	int n,m;
+	//	int A[maxn],B[maxn];
+	//	cin>>n>>m;
 	
-	int A[2000],B[2000],C[5000],D[5000],E[5000],G[5000];
+	n=5;m=5;
 	
-	int a,b,i,j;int c=0;int d=0;int d2=0;	
-		int g=0;int time=0;int e=0;
+	int	A[maxn]={1,2,3,4,5};
 	
-	scanf("%d",&a);
+	int B[maxn]={2,4,6,8,10};
 	
-	for(i=0;i<a;i++)	scanf("%d",&A[i]);
+	set<int>	Ag;
+	set<int>	Bg;
+	set<int> jiao;
+	set<int> bing;
 	
-	scanf("%d",&b);
-	
-	for(i=0;i<b;i++)	scanf("%d",&B[i]);
-	
-	 
-	for(i=0;i<a;i++)
-		for(j=0;j<b;j++)
-		{
-			
-			if(A[i]==B[j])
-			{
-				C[c]=A[i];
-				c++;
-				
-			}
-			
-			}	
-	
-	//sort(C,C+c);
-	//printf("\nC=%d\n",c);
-	for(i=0;i<c;i++)	
-		printf("%d ",C[i]);
-	
-	printf("\n");
-	
-	
-	for(d=0;d<(a+b);d++)
+	for(int i=0;i<n;i++)
 	{
-		if(d<a) 	
-			D[d]=A[d];
-		else		
-			D[d]=B[d-a];
+		bing.insert(A[i]);Ag.insert(A[i]);
+	}
 		
+	for(int j=0;j<m;j++)
+	{
+		if(find(Ag.begin(),Ag.end(),B[j])==Ag.end());
+		else
+			jiao.insert(B[j]);
+		bing.insert(B[j]);
 	}
 	
-		
-	for(d=0;d<(a+b);d++)
+	for(set<int>::iterator it=jiao.begin();it!=jiao.end();it++)
 	{
-		d2=D[d];
-		for(i=0;i<(a+b);i++)
+		Ag.erase(*it);
+		cout<<*it;
+		if(t++==jiao.end())
 		{
-			if(i==d)	continue;
-			else	if(d2==D[i])	D[i]=-99; 
+			
 		}
+		else
+			cout<<" ";
 	}
+	cout<<endl;
+	for(set<int >::iterator it=bing.begin();it!=bing.end();it++)
+		cout<<*it<<" ";
+	cout<<endl;
+	for(set<int >::iterator it=Ag.begin();it!=Ag.end();it++)
+		cout<<*it<<" ";
 	
-	printf("\nD=%d\n",d);
-	for(i=0;i<d;i++)	
-		printf("%d ",D[i]);
-	
-	printf("\n");
-	
-	
-	
-	//sort(D,D+d);
-
-	//printf("\nD=%d\n",d);
-	for(i=0;i<d;i++)
-	{
-		if(D[i]!=-99)
-		{
-			G[g]=D[i];g++;
-		}
-	}
-	
-	//sort(G,G+g);
-	for(i=0;i<g;i++)
-			 	printf("%d ",G[i]);
-	
-	printf("\n");
-	
-	for(i=0;i<a;i++)	
-	
-	{
-			time=0;
-			for(j=0;j<c;j++)
-			
-			{
-				if(A[i]!=C[j])
-				{
-						time++;
-						//printf(" A[i]=%d ",A[i]);
-						continue;
-					}
-			
-			}
-			
-			if(time==c)	
-			{
-				E[e]=A[i];e++;
-			}
-	}
-	
-	//sort(E,E+e);
-	
-	for(i=0;i<e;i++)	
-		printf("%d ",E[i]);
-	
-}
+} 
