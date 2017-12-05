@@ -7,19 +7,26 @@ using namespace std;
 
 int main(){
 	
+	char out[maxn][maxn];
+	
 	int n,m;cin>>n>>m;
 	
-	for(int i=0;i<n;i++)
+	for(int i=0;i<26;i++)
 	{
 		for(int j=0;j<i;j++)
 		{
-			printf("%c",65+i-j);
-		 } 
-		for(int j=0;j<m-i;j++)
+			out[i][j]=65+i-j;	
+			
+		}
+		for(int j=i;j<26;j++)
+			out[i][j]=65+j-i;	
+	}
+	
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<m;j++)
 		{
-			
-			printf("%c",65+j);
-			
+			printf("%c",out[i][j]);
 		}
 		if(i!=n-1)	cout<<endl;
 	}
