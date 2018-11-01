@@ -2,23 +2,28 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<windows.h>
-#define time 150
+#define time 10
 int main()
 {
 	int tangx,tangy;
 	tangx=29;tangy=32; 
-	int n=4;int tx,ty,wx,wy;								//ÉßµÄ³õÊ¼³¤¶È ,t Í·£¬w Î² 
+	int n=4;int tx,ty,wx,wy;								//è›‡çš„åˆå§‹é•¿åº¦ ,t å¤´ï¼Œw å°¾ 
 	int x=77;
 	char k[41][51]={0};
 	int i,j,m,p;
 	int a,b;a=25;b=26;
-	k[a][b]='#';k[a][b-1]='#';k[a][b-2]='#';k[a][b-3]='#';	//Ì°³ÔÉß³õÊ¼»¯Î»ÖÃ 
+	k[a][b]='#';k[a][b-1]='#';k[a][b-2]='#';k[a][b-3]='#';	//è´ªåƒè›‡åˆå§‹åŒ–ä½ç½® 
 	tx=25;ty=26;wx=25;wy=23;
+	
+	tangx=rand()%40;
+	tangy=rand()%40;
+	k[tangx][tangy]='@';
+			
 	for(;;)
 	{
 		
 		for(i=0;i<40;i++)
-			for(j=0;j<50;j++)								//´òÓ¡¶şÎ¬Êı×éµÄÈ«²¿ÔªËØ
+			for(j=0;j<50;j++)								//æ‰“å°äºŒç»´æ•°ç»„çš„å…¨éƒ¨å…ƒç´ 
 			{
 				if(j==49)
 					printf("%c\n",k[i][j]);
@@ -45,11 +50,11 @@ int main()
 			k[tangx][tangy]='@'; 
 		}
 										
-		if(kbhit()!=0)										//¼ì²âÉÏ¡£ÏÂ¡£×ó¡£ÓÒ 
+		if(kbhit()!=0)										//æ£€æµ‹ä¸Šã€‚ä¸‹ã€‚å·¦ã€‚å³ 
 		{
 			getch();x=getch();
 			
-			k[tangx][tangy]='@'; 
+			//k[tangx][tangy]='@'; 
 		}
 		else
 		{
