@@ -1,4 +1,4 @@
-//https://blog.csdn.net/qq_25973267/article/details/50405616
+//http://www.cnblogs.com/cmmdc/p/7216726.html
 
 #include<iostream>
 
